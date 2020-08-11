@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: dodgerblue;
+          text-align: centre;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Add padding to containers */
+        .container {
+          padding: 16px;
+          background-color: white;
+          height: 100%;
+          width: 640px;
+          margin-left: 300px;
+          margin-top: 50px;
+          margin-bottom: 100px;
+          border-style: solid ;
+        }
+        
+        /* Full-width input fields */
+        input[type=text], input[type=number], input[type=tel], input[type=date], input[type=password]{
+          width:100%;
+           padding: 10px;
+          border-radius : 20px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+        
+        
+        
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+        
+        /* Set a style for the submit button */
+        .submit {
+          background-color: #1a8cff;
+          color: white;
+          padding: 10px;
+          border-radius : 20px;
+          border: none;
+          cursor: pointer;
+          width: 200px;
+          opacity: 0.9;
+          margin-left : 200px;
+          text-align: center;
+          
+        }
+        
+        .registerbtn:hover {
+          opacity: 1;
+        }
+        
+        
+        input[type=text]:focus,input[type=email]:focus,input[type=number]:focus{
+          background-color: #ddd;
+          outline: none;
+        }
+        .Error{
+                        color: #ff0000; /*Red Color*/
+                        font-weight: bold;
+                        font-size : small;
+                    }
+        h1{
+         text-align : center;
+        }
+        
+        .textbox{
+              width: 300px;
+           padding: 10px;
+          border-radius : 20px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+         
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        
+        .req{
+         color:red;
+        
+        }
+        
+        </style>
+        <script>
+            function checkReqFields(){
+                var returnValue;
+                var username = document.getElementById("username");
+                var password = document.getElementById("password");
+                console.log(username);
+                console.log(password)
+                returnValue=true;
+   if(username.value.trim()==""){
+   username.focus();
+    document.getElementById("requsername").innerHTML="* Username is required.";
+    return false;
+    }
+    if(password.value==""){
+//password.focus();
+document.getElementById("reqpassword").innerHTML="* password is required.";
+return false;
+   }
+ }
+ function checkusername(){
+
+var username=document.getElementById("username").value;
+if ( /^201(2239030|62(390(0[1|2|4|6-9]|1[1-9]|2[0-9]|3[0])|420(0[3|5|6-7|9]|1[1-8])))$/.test(username.toString()) == false || username.toString() == "" || username == null || username.length != 10){
+document.getElementById('requsername').innerHTML="*Match required format";
+return false;
+}else{
+document.getElementById('requsername').innerHTML="";
+return true;
+}  
+}
+
+</script>
+</head>
+<body>
+            <form method="post" id="reg_form" name="student" action="/validate_user" onsubmit="return checkReqFields()">
+                <div class="container">
+                  <h1>LOGIN PAGE</h1>
+                 
+                  <hr>
+    <label for="username"><b>Username</b></label><span class=required>*</span><br>
+    <input type="text" class=textbox placeholder="Enter user Name" id="username" name="username" oninput="checkusername()"  ><br>
+    <span id="requsername"></span><br>
+   
+   
+    <label for="password"><b>Password</b></label><span class=required>*</span><br>
+    <input type="password" class=textbox placeholder="Enter password" name="password"  ><br>
+    <span id="reqpassword"></span><br>  
+       
+    <button type="submit" class="submit" >SUBMIT</button><br>
+    <hr>
+    <a href="http://localhost:3030/pwdchange"> Forgot Password?</a>
+    <span class=required>*</span> Mandatory fields
+  </div>
+    </form>
+</body>
+</html>

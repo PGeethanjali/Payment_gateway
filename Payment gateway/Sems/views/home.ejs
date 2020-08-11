@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script>
+     function myfunction(){
+    if(document.getElementById("status").value=="success"){
+      document.getElementById("pay").innerHTML = "PAID";
+      document.getElementById("pay").disabled = true;
+      
+    }
+    else if (document.getElementById("status").value=="Failure"){
+        document.getElementById("pay").innerHTML = "PAY";
+      document.getElementById("pay").disabled = false;
+    }
+}
+  </script>
+<style>
+
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: dodgerblue;
+          text-align: centre;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Add padding to containers */
+        .container {
+          padding: 16px;
+          background-color: white;
+          height: 100%;
+          width: 640px;
+          margin-left: 300px;
+          margin-top: 50px;
+          margin-bottom: 100px;
+          border-style: solid ;
+        }
+        
+        /* Full-width input fields */
+        input[type=text], input[type=number], input[type=tel], input[type=date], input[type=email]{
+          width:100%;
+           padding: 10px;
+          border-radius : 20px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+        
+        
+        
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+        
+        /* Set a style for the submit button */
+        .pay {
+          background-color: #1a8cff;
+          color: white;
+          padding: 10px;
+          border-radius : 20px;
+          border: none;
+          cursor: pointer;
+          width: 200px;
+          opacity: 0.9;
+          margin-left : 200px;
+          text-align: center;
+          
+        }
+        
+        .registerbtn:hover {
+          opacity: 1;
+        }
+        
+        
+        input[type=text]:focus,input[type=email]:focus,input[type=number]:focus{
+          background-color: #ddd;
+          outline: none;
+        }
+        .Error{
+                        color: #ff0000; /*Red Color*/
+                        font-weight: bold;
+                        font-size : small;
+                    }
+        h1{
+         text-align : center;
+        }
+        
+        .textbox{
+              width: 300px;
+           padding: 10px;
+          border-radius : 20px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+         
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        
+        .req{
+         color:red;
+        
+        }
+        
+        </style></head>
+<body onload="myfunction()">
+  <form method="post" id="home_form" name="students" action="/createHash" >
+<div class="container">
+ <table border="1" align="center">
+<tr>
+<tr><td>Name</td><td><input type="text" name="name"  value="<%=data.name%>"></td></tr>
+<tr><td>Regno</td><td><input type="text" name="regno" value="<%=data.rollno%>"></td></tr>
+<tr><td>Semester</td><td><input type="text" name="semester" value="<%=data.semester%>"></td></tr>
+<tr><td>Testing</td><td><input type="text" name="p1" value="<%=data.p1%>"></td></tr>
+<tr><td>Compiler</td><td><input type="text" name="p2" value="<%=data.p2%>"></td></tr>
+<tr><td>Cloud</td><td><input type="text" name="p3" value="<%=data.p3%>"></td></tr>
+<tr><td>TQM</td><td><input type="text" name="p4" value="<%=data.p4%>"></td></tr>
+<tr><td>Testinglab</td><td><input type="text" name="p5" value="<%=data.p5%>"></td></tr>
+<tr><td>Fine</td><td><input type="text" name="fine" value="<%=data.fine%>"></td></tr>
+<tr><td>TotalAmount</td><td><input type="text" name="totalamount" value="<%=data.totalamount%>"></td></tr>
+
+</table>
+<br>
+<br>
+
+<input type="hidden"  name="status" id="status" value="<%=data.status%>">
+<button type="submit" class="pay" id="pay"></button><br>
+
+</div>
+</form>
+</body>
+</html>

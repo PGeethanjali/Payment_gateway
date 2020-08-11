@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script>
+     function myfunction(){
+       console.log(document.getElementById("status").value);
+    if(document.getElementById("status").value=="success"){
+      document.getElementById("pay").innerHTML = "PAID";
+      document.getElementById("pay").disabled = true;
+      
+    }
+    else if (document.getElementById("status").value=="Failure"){
+        document.getElementById("pay").innerHTML = "PAY";
+      document.getElementById("pay").disabled = false;
+    }
+}
+
+
+function preventBack() {
+    window.history.forward();
+}
+ window.onunload = function() {
+    null;
+};
+setTimeout("preventBack()", 0);
+
+
+ 
+  </script>
+<style>
+
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: dodgerblue;
+          text-align: centre;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Add padding to containers */
+        .container {
+          padding: 16px;
+          background-color: white;
+          height: 100%;
+          width: 640px;
+          margin-left: 300px;
+          margin-top: 50px;
+          margin-bottom: 100px;
+          border-style: solid ;
+        }
+        
+     
+        
+        
+        
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+        
+        /* Set a style for the submit button */
+        .pay {
+          background-color: #1a8cff;
+          color: white;
+          padding: 10px;
+          border-radius : 20px;
+          border: none;
+          cursor: pointer;
+          width: 200px;
+          opacity: 0.9;
+          margin-left : 200px;
+          text-align: center;
+          
+        }
+        
+        .registerbtn:hover {
+          opacity: 1;
+        }
+        
+        
+     
+        .Error{
+                        color: #ff0000; /*Red Color*/
+                        font-weight: bold;
+                        font-size : small;
+                    }
+        h1{
+         text-align : center;
+        }
+        
+        .textbox{
+              width: 300px;
+           padding: 10px;
+         
+          
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+         
+        
+        .req{
+         color:red;
+        
+        }
+        
+	table, th, td,tr {
+	      border: solid 1px #DDD;
+	      height:20%;
+	      border-collapse: collapse;
+	      text-align: center;
+	        }
+            h1{
+                text-align: center;
+            }
+        </style></head>
+<body onload="myfunction()">
+  <form method="post" id="home_form" name="students" action="/createHash" >
+<div class="container">
+    <h1>SEMS</h1>
+ <table  align="center" >
+<tr>
+<tr><td><strong>Name</strong></td><td><input type="text" style="border:none" name="name"  value="<%=data.name%>"></td></tr>
+<tr><td><strong>Regno</strong></td><td><input type="text"style="border:none" name="regno" value="<%=data.rollno%>"></td></tr>
+<tr><td><strong>Semester</strong></td><td><input type="text"style="border:none" name="semester" value="<%=data.semester%>"></td></tr>
+
+</table>
+<br>
+<br>
+<table align="center" class="tab">
+<tr><th><strong>SUBJECT</strong></th><th><strong>AMOUNT</strong></tr>
+<tr><td><strong>Testing</strong></td><td><input type="text" style="border:none"name="p1" value="<%=data.p1%>"></td></tr>
+<tr><td><strong>Compiler</strong></td><td><input type="text"style="border:none" name="p2" value="<%=data.p2%>"></td></tr>
+<tr><td><strong>Cloud</strong></td><td><input type="text" style="border:none" name="p3" value="<%=data.p3%>"></td></tr>
+<tr><td><strong>TQM</strong></td><td><input type="text" style="border:none" name="p4" value="<%=data.p4%>"></td></tr>
+<tr><td><strong>Testinglab</strong></td><td><input type="text" style="border:none" name="p5" value="<%=data.p5%>"></td></tr>
+</table>
+<br>
+<br>
+<table align="center" class="tab">
+<tr><td><strong>Fine</strong></td><td><input type="text" style="border:none" name="fine" value="<%=data.fine%>"></td></tr>
+<tr><td><strong>TotalAmount</strong></td><td><input type="text" style="border:none" name="totalamount" value="<%=data.totalamount%>"></td></tr>
+
+</table>
+<br>
+<br>
+
+<input type="hidden"  name="status" id="status" value="<%=data.status%>">
+<button type="submit" class="pay" id="pay"></button><br>
+
+</div>
+</form>
+</body>
+</html>

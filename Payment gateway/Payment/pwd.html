@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Credit Card Validation Demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/demo.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <div class="limiter">
+                <h3>PAYMENT GATEWAY</h3>
+                
+            </div>
+        </header>
+        <div class="creditCardForm">
+            <div class="heading">
+                <h1>Change Password</h1>
+            </div>
+            <div class="payment">
+                <form method="post" id="reg_form" name="student" action="http://localhost:8080/update_user">
+                    <label for="username"><b>Username</b></label><span class=required>*</span><br>
+    <input type="text" class=textbox placeholder="Enter Email ID" id="username" name="username"  ><br>
+    <span id="requsername"></span><br>
+   
+    <label for="password"><b>Password</b></label><span class=required>*</span><br>
+    <input type="password" class=textbox placeholder="Enter new password" name="password"  ><br>
+    <span id="reqpassword"></span><br>  
+       
+                    <div class="form-group" id="pay">
+                        <button type="submit" class="btn btn-default" value="Go back to sems"></button>
+                        
+                      </div>
+                    
+                    
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+</body>
+
+</html>
